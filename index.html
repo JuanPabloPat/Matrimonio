@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Nos Casamos! [Nombre de la Novia] & [Nombre del Novio]</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Caveat:wght@400..700&family=My+Soul&family=Parisienne&family=Sacramento&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1.0.3">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+    <img src="https://1drv.ms/i/c/877bec01de16f337/IQQUDGIfXOybR45iNnsiJsOxAQhuKdVHGP7SIu7e4D2xVPs?width=1024"
+        alt="flores" class="flores-encima">
+    <div class="particles-background"></div>
+
+    <div class="container">
+        <section class="section hero water-section">
+            <canvas class="starry-bg"></canvas>
+            <h1>¡ Nuestro Sí Para Siempre !</h1>
+            <p>Con el corazón lleno de amor, los invitamos a compartir la alegría de nuestra unión.</p>
+            <div class="names">
+                <span>Stefanny Guacas</span>
+                <span class="ampersand">&</span>
+                <span>Oscar Castro</span>
+            </div>
+        </section>
+        <section class="section our-story">
+            <h2>Nuestra Historia</h2>
+            <p id="frace">Desde el primer encuentro, supimos que estábamos destinados a compartir esta aventura. Aquí
+                tecontamos un poco de nuestro viaje juntos:</p>
+            <div class="story-timeline">
+                <div class="story-node"></div>
+                <div class="story-item no-image">
+                    <div class="story-icon">
+                    </div>
+                    <h3>El Comienzo</h3>
+                    <p>Todo empezó en una tarde cualquiera, en un lugar que ahora tiene un rincón en nuestro corazón.
+                        Una conversación, una sonrisa… y así comenzó todo.</p>
+                </div>
+
+                <div class="story-node"></div>
+                <div class="story-item no-image">
+                    <div class="story-icon">
+                    </div>
+                    <h3>Nuestras Aventuras</h3>
+                    <p>Entre viajes, risas, caminatas y cafés compartidos, construimos recuerdos inolvidables. Cada paso
+                        nos acercó más, sin importar la distancia.</p>
+                </div>
+
+                <div class="story-node"></div>
+                <div class="story-item no-image">
+                    <div class="story-icon">
+                    </div>
+                    <h3>El Sí, Quiero</h3>
+                    <p>En un momento lleno de emoción, rodeados de amor y complicidad, dijimos "sí" al futuro. Un
+                        instante que selló nuestra historia con una promesa eterna.</p>
+                </div>
+
+                <div class="story-node"></div>
+            </div>
+            <script>
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('focused');
+                            } else {
+                                entry.target.classList.remove('focused');
+                            }
+                        });
+                    },
+                    {
+                        root: null,
+                        threshold: 0.6, // entre 0.5 y 0.7 es buen punto para "centrado"
+                    }
+                );
+
+                document.querySelectorAll('.story-item').forEach(item => {
+                    observer.observe(item);
+                });
+            </script>
+
+            <style>
+                .story-item.focused {
+                    transform: rotate(0deg) scale(1.02);
+                    z-index: 2;
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                }
+            </style>
+        </section>
+
+
+        <section class="section gallery" style="margin-top: -80px;">
+            <h2>Momentos Especiales</h2>
+
+            <div class="gallery-grid" style="margin-left: -18px;">
+                <div class="gallery-item"><img
+                        src="https://1drv.ms/i/c/877bec01de16f337/IQSDs2uJH-fzQojAjW6G3yXmAY6GGTVwfXW0CmqUya4wgaE"
+                        alt="Foto 1"></div>
+                <div class="gallery-item"><img
+                        src="https://1drv.ms/i/c/877bec01de16f337/IQRTCYDt02ckQ5IXy8PhRTbhAfMO8dxhOKXx79q9N7Jr2xs"
+                        alt="Foto 2"></div>
+                <div class="gallery-item"><img
+                        src="https://1drv.ms/i/c/877bec01de16f337/IQR6oTGkCR1QQZRdHAL9TY6EAXVAEdpSWQ-FEQTmH1m7zKk"
+                        alt="Foto 3"></div>
+                <div class="gallery-item"><img
+                        src="https://1drv.ms/i/c/877bec01de16f337/IQS8pfMVF9IaS5ZvURreorFEAZ-RTWI0qD7dXweabwLK9PY"
+                        alt="Foto 4"></div>
+                <div class="gallery-item"><img
+                        src="https://1drv.ms/i/c/877bec01de16f337/IQSvL_ZuO0z6QbOGuPatNDSRAYgzwBBhk8_UXMq9UBX2hEE"
+                        alt="Foto 5">
+                </div>
+                <div class="gallery-item"><img
+                        src="https://1drv.ms/i/c/877bec01de16f337/IQSXork0Vv_mS4lXdRG3q_i6AX2FG8yI98MPB1xXLrzXAP4"
+                        alt="Foto 6">
+                </div>
+            </div>
+            <p id="frace">" Entretejí la vida de ambos de tal forma que los hilos de su corazón y de su espíritu se
+                mezclaran y formarán un hermoso tapiz, a pesar de ser tan distintos. <br> Esta obra de arte que ahora
+                son ustedes es una manifestación de mi sabiduría, mi perspicacia, y en especial, de mi amor. "</p>
+        </section>
+        <section class="section details">
+            <h2>Detalles del Evento</h2>
+
+            <div class="details-card">
+                <div class="detail-block">
+                    <h3>Fecha</h3>
+                    <p>Sábado, <strong>09 de Agosto, 2025</strong></p>
+                </div>
+
+                <div class="detail-block">
+                    <h3>Ceremonia</h3>
+                    <p>5:00 PM — <strong>Iglesia Sagrado Corazón de Jesús</strong></p>
+                    <p class="subtext">[Dirección de la Ceremonia]</p>
+                </div>
+
+                <div class="detail-block">
+                    <h3>Recepción</h3>
+                    <p>7:00 PM — <strong>San Ezequiel Moreno</strong></p>
+                    <p class="subtext">Manzana L, Casa 12</p>
+                </div>
+            </div>
+
+            <p class="gift-message">Tu presencia es nuestro mejor regalo</p>
+
+            <div class="countdown-elegant">
+                <h3 id="frace">“Cada segundo nos acerca a nuestro gran día”</h3>
+                <div class="countdown-row">
+                    <div class="countdown-box">
+                        <span id="days">00</span>
+                        <label>Días</label>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="hours">00</span>
+                        <label>Horas</label>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="minutes">00</span>
+                        <label>Minutos</label>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="seconds">00</span>
+                        <label>Segundos</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section rsvp">
+            <h2>Confirma Tu Asistencia</h2>
+            <p>Por favor, confirma tu asistencia antes del [Fecha Límite de RSVP] para que podamos planificar este día
+                especial.</p>
+            <a href="URL_DEL_FORMULARIO_RSVP_O_CONTACTO" class="rsvp-button">Confirmar Asistencia</a>
+        </section>
+
+        <footer class="section hero water-section">
+            <canvas class="starry-bg"></canvas>
+            <p>Con amor, Stefanny Guacas y Oscar Castro</p>
+            <p>© 2025 Todos los derechos reservados.</p>
+            <canvas class="starry-bg"></canvas>
+        </footer>
+    </div>
+
+    <script>
+        // Estrellas animadas para secciones con efecto agua
+        const canvases = document.querySelectorAll('.starry-bg');
+        canvases.forEach(canvas => {
+            const ctx = canvas.getContext('2d');
+            let stars = [];
+
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.offsetWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+                initStars();
+            }
+
+            function initStars() {
+                stars = [];
+                for (let i = 0; i < 50; i++) {
+                    stars.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        radius: Math.random() * 1.5 + 0.5,
+                        speed: Math.random() * 0.3 + 0.1
+                    });
+                }
+            }
+
+            function drawStars() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'white';
+                ctx.globalAlpha = 0.8;
+                stars.forEach(star => {
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                    star.y += star.speed;
+                    if (star.y > canvas.height) star.y = 0;
+                });
+                requestAnimationFrame(drawStars);
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            drawStars();
+        });
+
+        // Contador regresivo
+        // Fecha: 9 de agosto del 2025, puedes ajustar la hora si lo deseas
+        const weddingDate = new Date("2025-08-09T00:00:00").getTime();
+        const countdownFunction = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.querySelector(".countdown-container").innerHTML = "<span style='font-size: 1.2em;'>¡Ya nos casamos!</span>";
+            }
+        }, 1000);
+
+        // Partículas de fondo
+        const particlesContainer = document.querySelector('.particles-background');
+        const numParticles = 40;
+        for (let i = 0; i < numParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 10 + 5;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.setProperty('--x1', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--y1', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--s1', `${Math.random() * 0.5 + 0.8}`);
+            particle.style.setProperty('--x2', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--y2', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--s2', `${Math.random() * 0.5 + 0.8}`);
+            particle.style.setProperty('--x3', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--y3', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--s3', `${Math.random() * 0.5 + 0.8}`);
+            particle.style.setProperty('--x4', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--y4', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--s4', `${Math.random() * 0.5 + 0.8}`);
+            particle.style.setProperty('--x5', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--y5', `${(Math.random() - 0.5) * 200}px`);
+            particle.style.setProperty('--s5', `${Math.random() * 0.5 + 0.8}`);
+            particle.style.animationDuration = Math.random() * 10 + 10 + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+
+</html>
