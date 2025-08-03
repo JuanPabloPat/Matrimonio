@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.7" />
     <title>Carta interactiva con dos paneles</title>
     <link rel="stylesheet" href="style1.css">
-   
+
 </head>
 
 <body>
@@ -20,7 +20,8 @@
 
     <!-- Decoraciones -->
     <div class="decoraciones" id="decoraciones">
-        <img src="fotos/broche.png" id="broche" width="100" alt="" style="top: 41%; left: calc(50% - 50px); z-index: 5;" />
+        <img src="fotos/broche.png" id="broche" width="100" alt=""
+            style="top: 41%; left: calc(50% - 50px); z-index: 5;" />
         <!-- <img src="lazo.png" width="500" alt="" style="top: 40%; left: -140px; z-index: 4;" /> -->
         <div class="center-container">
             <img src="fotos/lazo.png" width="2100" alt="" class="centered-image1" />
@@ -37,6 +38,13 @@
     <!-- Script -->
     <script>
         document.getElementById('broche').addEventListener('click', () => {
+
+            const body = document.documentElement;
+            if (body.requestFullscreen) {
+                body.requestFullscreen().catch(err => {
+                    console.warn('No se pudo poner en fullscreen:', err);
+                });
+            }
             // const bloqueo = document.getElementById('bloqueo');
             const decoraciones = document.getElementById('decoraciones');
 
@@ -105,20 +113,20 @@
         }
     </script>
     <script>
-document.getElementById('broche').addEventListener('click', () => {
-    const panelIzquierdo = document.getElementById('panelIzquierdo');
-    const panelDerecho = document.getElementById('panelDerecho');
+        document.getElementById('broche').addEventListener('click', () => {
+            const panelIzquierdo = document.getElementById('panelIzquierdo');
+            const panelDerecho = document.getElementById('panelDerecho');
 
-    // Cuando termine la animación, borrarlos del DOM
-    const removePanels = () => {
-        panelIzquierdo.remove();
-        panelDerecho.remove();
-    }
+            // Cuando termine la animación, borrarlos del DOM
+            const removePanels = () => {
+                panelIzquierdo.remove();
+                panelDerecho.remove();
+            }
 
-    // Esperamos a que termine la transición y los quitamos
-    panelDerecho.addEventListener('transitionend', removePanels, { once: true });
-});
-</script>
+            // Esperamos a que termine la transición y los quitamos
+            panelDerecho.addEventListener('transitionend', removePanels, { once: true });
+        });
+    </script>
 
 
 
