@@ -2,294 +2,308 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Nos Casamos! [Nombre de la Novia] & [Nombre del Novio]</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Allura&family=Caveat:wght@400..700&family=My+Soul&family=Parisienne&family=Sacramento&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=1.0.3">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carta interactiva con dos paneles</title>
+    <style>
+        :root {
+            --primary-color: #6C7A89;
+            /* Azul grisáceo */
+            --secondary-color: #5e95af;
+            /* Azul cielo */
+            --tertiary-color: #000a14;
+            --four-color: #00254e;
+            /* Azul petróleo */
+            --text-dark: #333;
+            --text-light: #f9f9f9;
+            --white: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+            --water-color: rgba(173, 216, 230, 0.3);
+            /* Color agua translúcido */
+        }
 
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000814;
+            overflow: hidden;
+            height: 100%;
+        }
 
+        .carta {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #fefae0, #faedcd);
+            z-index: 0;
+            box-sizing: border-box;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .bloqueo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 15, 37, 0.747);
+            z-index: 3;
+            pointer-events: all;
+            transition: opacity 1s ease;
+        }
+
+        .bloqueo.oculto {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .panel {
+            height: 100vh;
+            width: 50%;
+            background: linear-gradient(to bottom, #0d1b2a, #000814);
+            position: absolute;
+            top: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            z-index: 2;
+            transition: transform 1s ease;
+        }
+
+        .panel-izquierdo {
+            left: 0;
+            border-radius: 0 100px 100px 0;
+        }
+
+        .panel-derecho {
+            right: 0;
+            border-radius: 100px 0 0 100px;
+        }
+
+        .panel-izquierdo.open {
+            transform: translateX(-100%);
+        }
+
+        .panel-derecho.open {
+            transform: translateX(100%);
+        }
+
+        .decorative-border {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            bottom: 20px;
+            right: 30px;
+            border: 3px dotted #64748b;
+            border-left: none;
+            border-radius: 0 80px 80px 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .rose {
+            position: absolute;
+            top: 30px;
+            width: 80px;
+            height: 80px;
+            z-index: 3;
+        }
+
+        .rose svg {
+            width: 100%;
+            height: 100%;
+            stroke: #fefefe;
+            fill: none;
+        }
+
+        .decoraciones {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 4;
+        }
+
+        .decoraciones img {
+            position: absolute;
+            transition: opacity 1s ease;
+            cursor: pointer;
+        }
+
+        .decoraciones.hidden img {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .center-container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .centered-image {
+            position: absolute;
+            top: 46%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-10deg);
+            transform-origin: center;
+            z-index: 4;
+            height: auto;
+        }
+
+        .centered-image1 {
+            position: absolute;
+            top: 41%;
+            left: 0%;
+            transform-origin: center;
+            z-index: 4;
+            height: auto;
+        }
+
+        .particles-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--tertiary-color) 0%, var(--four-color) 30%, var(--secondary-color) 100%);
+            /* azul a blanco */
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: moveParticle linear infinite;
+        }
+
+        @keyframes moveParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(100vw);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <img src="https://1drv.ms/i/c/877bec01de16f337/IQQUDGIfXOybR45iNnsiJsOxAQhuKdVHGP7SIu7e4D2xVPs?width=1024"
-        alt="flores" class="flores-encima">
-    <div class="particles-background"></div>
-
-    <div class="container">
-        <section class="section hero water-section">
-            <canvas class="starry-bg"></canvas>
-            <h1>¡ Nuestro Sí Para Siempre !</h1>
-            <p>Con el corazón lleno de amor, los invitamos a compartir la alegría de nuestra unión.</p>
-            <div class="names">
-                <span>Stefanny Guacas</span>
-                <span class="ampersand">&</span>
-                <span>Oscar Castro</span>
-            </div>
-        </section>
-        <section class="section our-story">
-            <h2>Nuestra Historia</h2>
-            <p id="frace">Desde el primer encuentro, supimos que estábamos destinados a compartir esta aventura. Aquí
-                tecontamos un poco de nuestro viaje juntos:</p>
-            <div class="story-timeline">
-                <div class="story-node"></div>
-                <div class="story-item no-image">
-                    <div class="story-icon">
-                    </div>
-                    <h3>El Comienzo</h3>
-                    <p>Todo empezó en una tarde cualquiera, en un lugar que ahora tiene un rincón en nuestro corazón.
-                        Una conversación, una sonrisa… y así comenzó todo.</p>
-                </div>
-
-                <div class="story-node"></div>
-                <div class="story-item no-image">
-                    <div class="story-icon">
-                    </div>
-                    <h3>Nuestras Aventuras</h3>
-                    <p>Entre viajes, risas, caminatas y cafés compartidos, construimos recuerdos inolvidables. Cada paso
-                        nos acercó más, sin importar la distancia.</p>
-                </div>
-
-                <div class="story-node"></div>
-                <div class="story-item no-image">
-                    <div class="story-icon">
-                    </div>
-                    <h3>El Sí, Quiero</h3>
-                    <p>En un momento lleno de emoción, rodeados de amor y complicidad, dijimos "sí" al futuro. Un
-                        instante que selló nuestra historia con una promesa eterna.</p>
-                </div>
-
-                <div class="story-node"></div>
-            </div>
-            <script>
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add('focused');
-                            } else {
-                                entry.target.classList.remove('focused');
-                            }
-                        });
-                    },
-                    {
-                        root: null,
-                        threshold: 0.6, // entre 0.5 y 0.7 es buen punto para "centrado"
-                    }
-                );
-
-                document.querySelectorAll('.story-item').forEach(item => {
-                    observer.observe(item);
-                });
-            </script>
-
-            <style>
-                .story-item.focused {
-                    transform: rotate(0deg) scale(1.02);
-                    z-index: 2;
-                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-                }
-            </style>
-        </section>
-
-
-        <section class="section gallery" style="margin-top: -80px;">
-            <h2>Momentos Especiales</h2>
-
-            <div class="gallery-grid" style="margin-left: -18px;">
-                <div class="gallery-item"><img
-                        src="https://1drv.ms/i/c/877bec01de16f337/IQSDs2uJH-fzQojAjW6G3yXmAY6GGTVwfXW0CmqUya4wgaE"
-                        alt="Foto 1"></div>
-                <div class="gallery-item"><img
-                        src="https://1drv.ms/i/c/877bec01de16f337/IQRTCYDt02ckQ5IXy8PhRTbhAfMO8dxhOKXx79q9N7Jr2xs"
-                        alt="Foto 2"></div>
-                <div class="gallery-item"><img
-                        src="https://1drv.ms/i/c/877bec01de16f337/IQR6oTGkCR1QQZRdHAL9TY6EAXVAEdpSWQ-FEQTmH1m7zKk"
-                        alt="Foto 3"></div>
-                <div class="gallery-item"><img
-                        src="https://1drv.ms/i/c/877bec01de16f337/IQS8pfMVF9IaS5ZvURreorFEAZ-RTWI0qD7dXweabwLK9PY"
-                        alt="Foto 4"></div>
-                <div class="gallery-item"><img
-                        src="https://1drv.ms/i/c/877bec01de16f337/IQSvL_ZuO0z6QbOGuPatNDSRAYgzwBBhk8_UXMq9UBX2hEE"
-                        alt="Foto 5">
-                </div>
-                <div class="gallery-item"><img
-                        src="https://1drv.ms/i/c/877bec01de16f337/IQSXork0Vv_mS4lXdRG3q_i6AX2FG8yI98MPB1xXLrzXAP4"
-                        alt="Foto 6">
-                </div>
-            </div>
-            <p id="frace">" Entretejí la vida de ambos de tal forma que los hilos de su corazón y de su espíritu se
-                mezclaran y formarán un hermoso tapiz, a pesar de ser tan distintos. <br> Esta obra de arte que ahora
-                son ustedes es una manifestación de mi sabiduría, mi perspicacia, y en especial, de mi amor. "</p>
-        </section>
-        <section class="section details">
-            <h2>Detalles del Evento</h2>
-
-            <div class="details-card">
-                <div class="detail-block">
-                    <h3>Fecha</h3>
-                    <p>Sábado, <strong>09 de Agosto, 2025</strong></p>
-                </div>
-
-                <div class="detail-block">
-                    <h3>Ceremonia</h3>
-                    <p>5:00 PM — <strong>Iglesia Sagrado Corazón de Jesús</strong></p>
-                    <p class="subtext">[Dirección de la Ceremonia]</p>
-                </div>
-
-                <div class="detail-block">
-                    <h3>Recepción</h3>
-                    <p>7:00 PM — <strong>San Ezequiel Moreno</strong></p>
-                    <p class="subtext">Manzana L, Casa 12</p>
-                </div>
-            </div>
-
-            <p class="gift-message">Tu presencia es nuestro mejor regalo</p>
-
-            <div class="countdown-elegant">
-                <h3 id="frace">“Cada segundo nos acerca a nuestro gran día”</h3>
-                <div class="countdown-row">
-                    <div class="countdown-box">
-                        <span id="days">00</span>
-                        <label>Días</label>
-                    </div>
-                    <div class="countdown-box">
-                        <span id="hours">00</span>
-                        <label>Horas</label>
-                    </div>
-                    <div class="countdown-box">
-                        <span id="minutes">00</span>
-                        <label>Minutos</label>
-                    </div>
-                    <div class="countdown-box">
-                        <span id="seconds">00</span>
-                        <label>Segundos</label>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="section rsvp">
-            <h2>Confirma Tu Asistencia</h2>
-            <p>Por favor, confirma tu asistencia antes del [Fecha Límite de RSVP] para que podamos planificar este día
-                especial.</p>
-            <a href="URL_DEL_FORMULARIO_RSVP_O_CONTACTO" class="rsvp-button">Confirmar Asistencia</a>
-        </section>
-
-        <footer class="section hero water-section">
-            <canvas class="starry-bg"></canvas>
-            <p>Con amor, Stefanny Guacas y Oscar Castro</p>
-            <p>© 2025 Todos los derechos reservados.</p>
-            <canvas class="starry-bg"></canvas>
-        </footer>
+    <!-- Carta con iframe -->
+    <div class="carta" id="carta">
+        <!-- <iframe src="index.html"></iframe> -->
+        <!-- <div class="bloqueo" id="bloqueo"></div> -->
+        <div class="particles-background"></div>
     </div>
 
+    <!-- Decoraciones -->
+    <div class="decoraciones" id="decoraciones">
+        <img src="fotos/broche.png" id="broche" width="100" alt="" style="top: 41%; left: calc(50% - 50px); z-index: 5;" />
+        <!-- <img src="lazo.png" width="500" alt="" style="top: 40%; left: -140px; z-index: 4;" /> -->
+        <div class="center-container">
+            <img src="fotos/lazo.png" width="2100" alt="" class="centered-image1" />
+            <img src="fotos/lazo1.png" width="2100" alt="" class="centered-image" />
+        </div>
+    </div>
+
+    <!-- Panel izquierdo -->
+    <div class="panel panel-izquierdo" id="panelIzquierdo"></div>
+
+    <!-- Panel derecho -->
+    <div class="panel panel-derecho" id="panelDerecho"></div>
+
+    <!-- Script -->
     <script>
-        // Estrellas animadas para secciones con efecto agua
-        const canvases = document.querySelectorAll('.starry-bg');
-        canvases.forEach(canvas => {
-            const ctx = canvas.getContext('2d');
-            let stars = [];
+        document.getElementById('broche').addEventListener('click', () => {
+            // const bloqueo = document.getElementById('bloqueo');
+            const decoraciones = document.getElementById('decoraciones');
 
-            function resizeCanvas() {
-                canvas.width = canvas.parentElement.offsetWidth;
-                canvas.height = canvas.parentElement.offsetHeight;
-                initStars();
-            }
+            // Remover el bloqueo inmediatamente
+            // bloqueo.remove();
 
-            function initStars() {
-                stars = [];
-                for (let i = 0; i < 50; i++) {
-                    stars.push({
-                        x: Math.random() * canvas.width,
-                        y: Math.random() * canvas.height,
-                        radius: Math.random() * 1.5 + 0.5,
-                        speed: Math.random() * 0.3 + 0.1
-                    });
-                }
-            }
+            // Animar ambos paneles
+            document.getElementById('panelIzquierdo').classList.add('open');
+            document.getElementById('panelDerecho').classList.add('open');
 
-            function drawStars() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = 'white';
-                ctx.globalAlpha = 0.8;
-                stars.forEach(star => {
-                    ctx.beginPath();
-                    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-                    ctx.fill();
-                    star.y += star.speed;
-                    if (star.y > canvas.height) star.y = 0;
-                });
-                requestAnimationFrame(drawStars);
-            }
+            // Quitar los estilos de decoraciones
+            decoraciones.removeAttribute('class');
 
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
-            drawStars();
+            // Limpiar decoraciones
+            decoraciones.innerHTML = '';
         });
+    </script>
 
-        // Contador regresivo
-        // Fecha: 9 de agosto del 2025, puedes ajustar la hora si lo deseas
-        const weddingDate = new Date("2025-08-09T00:00:00").getTime();
-        const countdownFunction = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('broche').addEventListener('click', () => {
+                const carta = document.getElementById('carta');
+                if (!carta) {
+                    console.warn('Elemento con id="carta" no encontrado');
+                    return;
+                }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                const bloqueo = document.getElementById('bloqueo');
+                if (bloqueo) bloqueo.remove();
 
-            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+                const iframe = document.createElement('iframe');
+                iframe.src = 'invitacion.html';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
 
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.querySelector(".countdown-container").innerHTML = "<span style='font-size: 1.2em;'>¡Ya nos casamos!</span>";
-            }
-        }, 1000);
+                carta.insertBefore(iframe, carta.firstChild); // <- Aquí el error si "carta" no existe
 
-        // Partículas de fondo
-        const particlesContainer = document.querySelector('.particles-background');
-        const numParticles = 40;
-        for (let i = 0; i < numParticles; i++) {
+                document.getElementById('panelIzquierdo')?.classList.add('open');
+                document.getElementById('panelDerecho')?.classList.add('open');
+
+                const decoraciones = document.getElementById('decoraciones');
+                if (decoraciones) {
+                    decoraciones.removeAttribute('class');
+                    decoraciones.innerHTML = '';
+                }
+            });
+        });
+    </script>
+    <script>
+        const container = document.querySelector('.particles-background');
+
+        for (let i = 0; i < 100; i++) {
             const particle = document.createElement('div');
-            particle.classList.add('particle');
-            const size = Math.random() * 10 + 5;
-            particle.style.width = size + 'px';
-            particle.style.height = size + 'px';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.setProperty('--x1', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--y1', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--s1', `${Math.random() * 0.5 + 0.8}`);
-            particle.style.setProperty('--x2', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--y2', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--s2', `${Math.random() * 0.5 + 0.8}`);
-            particle.style.setProperty('--x3', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--y3', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--s3', `${Math.random() * 0.5 + 0.8}`);
-            particle.style.setProperty('--x4', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--y4', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--s4', `${Math.random() * 0.5 + 0.8}`);
-            particle.style.setProperty('--x5', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--y5', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--s5', `${Math.random() * 0.5 + 0.8}`);
-            particle.style.animationDuration = Math.random() * 10 + 10 + 's';
-            particle.style.animationDelay = Math.random() * 5 + 's';
-            particlesContainer.appendChild(particle);
+            particle.className = 'particle';
+            const size = Math.random() * 2 + 1; // tamaño entre 1 y 3px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDuration = `${5 + Math.random() * 10}s`; // entre 5 y 15s
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+
+            container.appendChild(particle);
         }
     </script>
+
+
+
 </body>
 
 </html>
