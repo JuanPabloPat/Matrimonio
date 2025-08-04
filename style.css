@@ -861,3 +861,129 @@
         line-height: 1.6;
         font-size: 1em;
     }
+
+    /* Estado inicial de los elementos */
+    /* Estado inicial de los elementos */
+    .container,
+    .section h1,
+    .section h2,
+    .section p,
+    .story-node,
+    .countdown-box,
+    .rsvp-button,
+    .foto_central,
+    .names,
+    .detail-block,
+    #foto1,
+    #flor,
+    #flor1,
+    #borde1,
+    #borde2 {
+        opacity: 0;
+        transform: translateY(30px);
+        /* Aumentado ligeramente para un efecto más notorio */
+        transition: opacity 1.5s ease-out, transform 2s ease-out;
+        /* Duración más lenta */
+    }
+
+    /* Estado cuando el elemento es visible */
+    .is-visible {
+        opacity: 1 !important;
+    }
+
+    /* Animaciones específicas al hacerse visible */
+    .section h1.is-visible {
+        animation: scaleIn 3s ease-out forwards;
+        /* De 1.8s a 3s */
+    }
+
+    .section h2.is-visible::after {
+        animation: expandLine 2.5s ease-out forwards;
+        /* De 1.5s a 2.5s */
+    }
+
+    .story-node.is-visible {
+        animation: scaleIn 1.5s ease-out forwards;
+        /* De 0.8s a 1.5s */
+    }
+
+    .countdown-box.is-visible {
+        animation: bounceIn 2s ease-out forwards;
+        /* De 1s a 2s */
+    }
+
+    .rsvp-button.is-visible {
+        animation: fadeInSlideUp 2s ease-out forwards;
+        /* De 1.2s a 2s */
+    }
+
+    .names.is-visible {
+        animation: fadeIn 3s ease-out forwards;
+        /* De 2s a 3s */
+    }
+
+    #foto1.is-visible,
+    #flor.is-visible,
+    #flor1.is-visible,
+    #borde1.is-visible,
+    #borde2.is-visible {
+        animation: fadeInSlideUp 2s ease-out forwards;
+        /* De 1.2s a 2s */
+    }
+
+    /* Animaciones existentes */
+    @keyframes scaleIn {
+        from {
+            transform: scale(0.6);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes bounceIn {
+        0% {
+            transform: scale(0.3);
+            opacity: 0;
+        }
+
+        50% {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        70% {
+            transform: scale(0.9);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
