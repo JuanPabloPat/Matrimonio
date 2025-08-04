@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
     <title>¡Nos Casamos!</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
@@ -63,7 +63,7 @@
     <div class="particles-background"></div>
     <div class="container">
         <section class="section hero water-section">
-            <img src="fotos/flores.png" width="450px" style="margin-left: -60px; margin-top: -60px;" alt="">
+            <img src="fotos/flores.png" width="450px" style="margin-left: -50px; margin-top: -60px;" alt="">
             <div class="foto_central">
                 <div class="foto_contenido">
                     <img src="fotos/IMG_6338.JPG" alt="Foto central" />
@@ -79,41 +79,6 @@
                 <span class="name">Oscar Castro</span>
             </div>
 
-            <script>
-                const spans = document.querySelectorAll('#typing-text span');
-                let currentSpan = 0;
-                const texts = [];
-
-                // Guardamos los textos originales y vaciamos los spans
-                spans.forEach(span => {
-                    texts.push(span.textContent);
-                    span.textContent = ''; // Oculta el texto antes de empezar
-                });
-
-                function typeText(span, text, index = 0, callback) {
-                    if (index < text.length) {
-                        span.textContent += text.charAt(index);
-                        setTimeout(() => typeText(span, text, index + 1, callback), 80);
-                    } else {
-                        span.classList.remove('typing-cursor');
-                        if (callback) callback();
-                    }
-                }
-
-                function startTyping() {
-                    if (currentSpan < spans.length) {
-                        const span = spans[currentSpan];
-                        const text = texts[currentSpan];
-                        span.classList.add('typing-cursor');
-                        typeText(span, text, 0, () => {
-                            currentSpan++;
-                            setTimeout(startTyping, 300); // pausa entre líneas
-                        });
-                    }
-                }
-
-                startTyping();
-            </script>
 
 
         </section>
@@ -132,26 +97,28 @@
                         left: 0;
                     }
                 </style>
+                <img src="fotos/IMG_6422.png" width="80%" id="foto1" alt="">
                 <img src="fotos/flores1.png" id="flor" width="200px" alt="">
                 <img src="fotos/flores2.png" id="flor1" width="200px" alt="">
-                <img src="fotos/IMG_6422.png" width="80%" id="foto1" alt="">
             </section>
 
             <section>
                 <div style="margin-top: 40px;">
                     <hr>
-                    <p id="frace">"La historia comienza cuando dos personas que ni soñaban conocerse terminan
+                    <p id="frace" class="frace">"La historia comienza cuando dos personas que ni soñaban conocerse
+                        terminan
                         encontrandose en el instante menos esperado pero en el momento indicado "</p>
+                    <br>
                 </div>
 
                 <div class="bordes" style="position: relative; margin-top: 100px; padding-bottom: 200px;">
                     <div>
                         <img src="fotos/BORDE3.png" id="borde1" width="150px" alt=""
-                            style="position: absolute; top: -80px; left: 0; z-index: 0;">
+                            style="position: absolute; top: -80px; left: 0; z-index: 10;">
                         <h2 class="titulos"
                             style="position: relative; z-index: 1; max-width: 270px; margin: auto; font-size: 17px;">
                             <strong>
-                                CON LA BENDICION DE DIOS Y NUESTROS PADRES
+                                CON LA BENDICIÓN DE DIOS Y NUESTROS PADRES
                             </strong>
                         </h2>
                     </div>
@@ -168,7 +135,7 @@
                                 NUESTROS PADRINOS
                             </strong>
                         </h2>
-                        <p style="margin-top: 30px; text-align: left;">Lenos Pastas<br>Alexander Torr</p>
+                        <p style="margin-top: 30px; text-align: left;">Leonor Pastas<br>Alexánder Torres</p>
                     </div>
                     <div style="text-align: right; margin: 45px; margin-bottom: -150px; margin-top: -30px;">
                         <h2 class="titulos"
@@ -177,7 +144,7 @@
                                 NUESTROS TESTIGOS
                             </strong>
                         </h2>
-                        <p style="margin-top: 30px; text-align: right;">Paola Andrea Pantoja<br>Marlon Alejandro</p>
+                        <p style="margin-top: 30px; text-align: right;">Paola Andrea Pantoja<br>Marlon Alejandro de la Rosa</p>
                     </div>
 
 
@@ -191,7 +158,7 @@
         </div>
         <section class="section gallery" style="margin-top: -80px; margin: -10%;">
             <div style="position: relative; width: 100%; overflow: hidden; margin-top: -80px;">
-                <img src="fotos/IMG_6086.png" width="100%" alt="" style="display: block; width: 100%;">
+                <img src="fotos/IMG_6086.png" width="100%" alt="" style="display: block; width: 100%; z-index: 100; ">
                 <div style="
                     position: absolute;
                     top: 0;
@@ -205,11 +172,17 @@
             <div
                 style="width: 85%; margin: auto; background-color: rgba(0, 0, 0, 0.87); margin-top: -250px; margin-bottom: 100px; color: white; border: 1px solid black;">
                 <p id="frace"
-                    style="color: white; background-color: rgba(0, 0, 0, 0.568); font-size: 15px; margin-top: 90px;">"
+                    style="color: white; background-color: rgba(0, 0, 0, 0.568); font-size: 15px; margin-top: 0px;">"
                     Entretejí la vida de ambos de tal forma que los hilos de su corazón y de su espíritu se
                     mezclaran y formarán un hermoso tapiz, a pesar de ser tan distintos. Esta obra de arte que
                     ahora
                     son ustedes es una manifestación de mi sabiduría, mi perspicacia, y en especial, de mi amor. "</p>
+                <hr>
+                <hr>
+                <hr>
+                <hr>
+                <hr>
+                <hr>
             </div>
 
         </section>
@@ -226,10 +199,12 @@
                 <div>
                     <div style="width: 85%; margin-left: 22%; scale: 0.9;">
                         <div class="detail-block">
-                            <h2 style="font-size: 20px; color: #001F54;">Con el corazón lleno de amor, te invitamos a
+                            <h2 style="font-size: 20px; color: #001F54; margin-top: -80px;">Con el corazón lleno de amor, te invitamos a
                                 compartir la
                                 alegría de nuestra unión</h2>
+                                <br><br><br>
                         </div>
+
                         <div class="Ceremonia">
                             <strong>Ceremonia</strong>
                             <p>5:00 PM <br><span>Iglesia Sagrado Corazón de Jesús</span></p>
@@ -257,7 +232,8 @@
                             }
                         </style>
                         <div style="display: flex;">
-                            <div style="flex: 1; border-right: 1px solid black; text-align: center; padding: 5%; padding-top: 10%;">
+                            <div
+                                style="flex: 1; border-right: 1px solid black; text-align: center; padding: 5%; padding-top: 10%;">
                                 <div class="fecha">AGOSTO</div><br>
                                 <div class="dia">09</div><br>
                                 <div class="fecha">2025</div>
@@ -276,7 +252,7 @@
             <p class="gift-message">Tu presencia es nuestro mejor regalo</p>
 
             <div class="countdown-elegant">
-                <h3 id="frace">“Cada segundo nos acerca a nuestro gran día”</h3>
+                <h3 id="frace" class="frace">“Cada segundo nos acerca a nuestro gran día”</h3>
                 <div class="countdown-row">
                     <div class="countdown-box">
                         <span id="days">00</span>
@@ -298,10 +274,10 @@
             </div>
         </section>
         <section class="section rsvp">
-            <h2>Confirma Tu Asistencia</h2>
-            <p>Por favor, confirma tu asistencia antes del [Fecha Límite de RSVP] para que podamos planificar este día
-                especial.</p>
-            <a href="https://api.whatsapp.com/send/?phone=573165820837&text=Hola%2C+con+mucha+alegría+confirmo+mi+asistencia+a+la+boda+💒&type=phone_number&app_absent=0" class="rsvp-button">Confirmar Asistencia</a>
+            <img src="fotos/IMG_6062.png" width="100%" style="scale: 1.2;" alt="" style="margin-bottom: 50px;">
+            <hr hidden>
+            <span class="frace" id="frace"> " TODO POR AMOR A DIOS Y CÓMO ÉL LO QUIERA "</span><br>
+            <br>
         </section>
 
         <footer class="section hero water-section">
@@ -410,6 +386,155 @@
             particlesContainer.appendChild(particle);
         }
     </script>
+
+    <script>
+        const spans = document.querySelectorAll('#typing-text span');
+        let currentSpan = 0;
+        const texts = [];
+
+        // Guardamos los textos originales y vaciamos los spans
+        spans.forEach(span => {
+            texts.push(span.textContent);
+            span.textContent = ''; // Oculta el texto antes de empezar
+        });
+
+        function typeText(span, text, index = 0, callback) {
+            if (index < text.length) {
+                span.textContent += text.charAt(index);
+                setTimeout(() => typeText(span, text, index + 1, callback), 80);
+            } else {
+                span.classList.remove('typing-cursor');
+                if (callback) callback();
+            }
+        }
+
+        function startTyping() {
+            if (currentSpan < spans.length) {
+                const span = spans[currentSpan];
+                const text = texts[currentSpan];
+                span.classList.add('typing-cursor');
+                typeText(span, text, 0, () => {
+                    currentSpan++;
+                    setTimeout(startTyping, 300); // pausa entre líneas
+                });
+            }
+        }
+
+        startTyping();
+    </script>
+    <script>
+        function typeEffect(element, speed = 80) {
+            const text = element.getAttribute('data-full-text'); // texto original
+            let i = 0;
+            const interval = setInterval(() => {
+                element.textContent += text.charAt(i);
+                i++;
+                if (i >= text.length) clearInterval(interval);
+            }, speed);
+        }
+
+        // Configurar observer de scroll
+        const options = {
+            threshold: 0.3 // cuando el 30% se vea en pantalla
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    // Si no lo hemos mostrado todavía
+                    if (!el.classList.contains('typed')) {
+                        typeEffect(el, 70);
+                        el.classList.add('typed'); // para no repetir
+                        obs.unobserve(el);         // deja de observarlo
+                    }
+                }
+            });
+        }, options);
+
+        // Preparar elementos
+        document.querySelectorAll('.frace').forEach(el => {
+            el.setAttribute('data-full-text', el.textContent);
+            el.textContent = '';
+            observer.observe(el);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Seleccionar todos los elementos que se animarán al hacer scroll
+            const elementsToAnimate = document.querySelectorAll(
+                '.container, .section h1, .section h2, .section p, .story-node, .countdown-box, .rsvp-button, .foto_central, .names, .detail-block, #foto1, #flor, #flor1, #borde1, #borde2'
+            );
+
+            // Crear un Intersection Observer
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Añadir clase is-visible con un pequeño retraso para animaciones escalonadas
+                        setTimeout(() => {
+                            entry.target.classList.add('is-visible');
+                        }, index * 100); // Retraso escalonado de 100ms por elemento
+                        // Dejar de observar el elemento después de animarlo
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Activa cuando el 10% del elemento es visible
+            });
+
+            // Observar cada elemento
+            elementsToAnimate.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Animación de escritura para los nombres (ya existente, ajustado para trabajar con is-visible)
+            const spans = document.querySelectorAll('#typing-text span');
+            let currentSpan = 0;
+            const texts = [];
+
+            spans.forEach(span => {
+                texts.push(span.textContent);
+                span.textContent = ''; // Oculta el texto antes de empezar
+            });
+
+            function typeText(span, text, index = 0, callback) {
+                if (index < text.length) {
+                    span.textContent += text.charAt(index);
+                    setTimeout(() => typeText(span, text, index + 1, callback), 60);
+                } else {
+                    span.classList.remove('typing-cursor');
+                    if (callback) callback();
+                }
+            }
+
+            function startTyping() {
+                if (currentSpan < spans.length) {
+                    const span = spans[currentSpan];
+                    const text = texts[currentSpan];
+                    span.classList.add('typing-cursor');
+                    typeText(span, text, 0, () => {
+                        currentSpan++;
+                        setTimeout(startTyping, 150);
+                    });
+                }
+            }
+
+            // Observar el contenedor de nombres
+            const typingObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startTyping();
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            typingObserver.observe(document.getElementById('typing-text'));
+
+        });
+    </script>
+
 </body>
 
 </html>
