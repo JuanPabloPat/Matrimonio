@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=0.9" />
-    <title>Carta interactiva con dos paneles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.7" />
+    <title>Nos Casamos !</title>
     <link rel="stylesheet" href="style1.css">
 
 </head>
 
 <body>
+
+    <audio id="musica" src="musica.mp3" autoplay></audio>
 
     <!-- Carta con iframe -->
     <div class="carta" id="carta">
@@ -39,6 +41,9 @@
     <script>
         document.getElementById('broche').addEventListener('click', () => {
 
+            const audio = document.getElementById('musica');
+            audio.volume = 1;   // volumen al máximo
+            audio.play().catch(err => console.log(err));
             const body = document.documentElement;
             if (body.requestFullscreen) {
                 body.requestFullscreen().catch(err => {
@@ -134,4 +139,3 @@
 </body>
 
 </html>
-
